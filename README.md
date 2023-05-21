@@ -55,10 +55,9 @@ I am using MongoDB Atlas. You use my creadential or please create a DB and add t
 12. You could now connect to the cluster using [MongoDB Compass](https://www.mongodb.com/products/compass), which is a graphical interface (GUI) to interact with the database.
 13. But we need to select **Connect your application** to get the connection string, it should look like this:
     `mongodb+srv://<username>:<password>@your-cluster.12abc.mongodb.net/your-database?retryWrites=true&w=majority` and replace `<username>` and `<password>` with the credentials you just created. Back
-    in your project, open your `.env` file and update `MONGODB_URI` with your new connection string. > NOTE! - If you don't have an `.env` file yet, rename `.env.example` to `.env` and follow the
+    in your project, open your `.env` file and update `MONGO_URL` with your new connection string. > NOTE! - If you don't have an `.env` file yet, rename `.env.example` to `.env` and follow the
     comments to update the values in that file.
-14. **Success!** You can test that it works locally by updating `MONGODB_URI_LOCAL` to the same connection string you just updated in `MONGO_URI`. After rebuilding/serving, the app should work, but
-    users that were previously created in local testing will not exist in the new database! Don't forget to return the `MONGO_URI_LOCAL` to your local test database (if you so desire).
+14. **Success!** 
 
 You can find **more information** about how to get started with Atlas [here](https://docs.atlas.mongodb.com/getting-started/).
 
@@ -70,3 +69,28 @@ npm run build
 ```
 
 Finally, navigate to `http://localhost:8080`
+
+
+### End Points
+
+1. Health Check
+```curl --location 'localhost:8080/ping'```
+2. Create a User
+```curl --location 'localhost:8080/users/createUser' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Saikat2"
+}'```
+3. Get All users
+```curl --location 'localhost:8080/users/getAllUsers'```
+4. Get user By userId
+```curl --location 'localhost:8080/users/getUserById/6469b673b3a3941b4eab120e'```
+5. Update User
+```curl --location --request PATCH 'localhost:8080/users/update/6469231dcf7c08b42f71f842' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name":"saikat2"
+}'```
+6. Delete a user
+```curl --location --request DELETE 'localhost:8080/users/delete/6469231dcf7c08b42f71f842'```
+
