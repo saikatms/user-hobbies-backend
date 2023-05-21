@@ -57,7 +57,7 @@ I am using MongoDB Atlas. You use my creadential or please create a DB and add t
     `mongodb+srv://<username>:<password>@your-cluster.12abc.mongodb.net/your-database?retryWrites=true&w=majority` and replace `<username>` and `<password>` with the credentials you just created. Back
     in your project, open your `.env` file and update `MONGO_URL` with your new connection string. > NOTE! - If you don't have an `.env` file yet, rename `.env.example` to `.env` and follow the
     comments to update the values in that file.
-14. **Success!** 
+14. **Success!**
 
 You can find **more information** about how to get started with Atlas [here](https://docs.atlas.mongodb.com/getting-started/).
 
@@ -70,33 +70,33 @@ npm run build
 
 Finally, navigate to `http://localhost:8080`
 
-
 ### End Points
 
-1. Health Check
-```curl --location 'localhost:8080/ping'```
+1. Health Check `curl --location 'localhost:8080/ping'`
 2. Create a User
+
 ```curl --location 'localhost:8080/users/createUser' \
 --header 'Content-Type: application/json' \
 --data '{
     "name": "Saikat2"
 }'
 ```
-3. Get All users
-```curl --location 'localhost:8080/users/getAllUsers'```
-4. Get user By userId
-```curl --location 'localhost:8080/users/getUserById/6469b673b3a3941b4eab120e'```
+
+3. Get All users `curl --location 'localhost:8080/users/getAllUsers'`
+4. Get user By userId `curl --location 'localhost:8080/users/getUserById/6469b673b3a3941b4eab120e'`
 5. Update User
-```curl --location --request PATCH 'localhost:8080/users/update/6469231dcf7c08b42f71f842' \
+
+```curl --location --request PATCH 'localhost:8080/users/updateUser/6469b673b3a3941b4eab120e' \
 --header 'Content-Type: application/json' \
 --data '{
     "name":"saikat2"
 }'
 ```
-6. Delete a user
-```curl --location --request DELETE 'localhost:8080/users/delete/6469231dcf7c08b42f71f842'```
+
+6. Delete a user `curl --location --request DELETE 'localhost:8080/users/deleteUser/6469231dcf7c08b42f71f842'`
 
 7. Create A Hobbie
+
 ```curl --location 'localhost:8080/hobbies/createHobby' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -106,7 +106,9 @@ Finally, navigate to `http://localhost:8080`
     "passionLevel": "Very-High"
 }'
 ```
+
 8. Update a Hobby
+
 ```curl --location --request PATCH 'localhost:8080/hobbies/updateHobby/6469c4c888571fb2ed701f0b' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -116,12 +118,8 @@ Finally, navigate to `http://localhost:8080`
     "passionLevel": "High"
 }'
 ```
-9. Get a Hobby
-```curl --location 'localhost:8080/hobbies/getHobby/6469c4c888571fb2ed701f0b'```
-10. Get all Hobby
-```curl --location 'localhost:8080/hobbies/getAllHobbies'```
-11. Get a user's hobby
-```curl --location 'localhost:8080/hobbies/getUserHobbies/6469b673b3a3941b4eab120e'```
-12. Delete a Hobby
-```curl --location --request DELETE 'localhost:8080/hobbies/deleteHobby/6469c4c888571fb2ed701f0b'```
 
+9. Get a Hobby `curl --location 'localhost:8080/hobbies/getHobby/6469c4c888571fb2ed701f0b'`
+10. Get all Hobby `curl --location 'localhost:8080/hobbies/getAllHobbies'`
+11. Get a user's hobby `curl --location 'localhost:8080/hobbies/getUserHobbies/6469b673b3a3941b4eab120e'`
+12. Delete a Hobby `curl --location --request DELETE 'localhost:8080/hobbies/deleteHobby/6469c4c888571fb2ed701f0b'`
