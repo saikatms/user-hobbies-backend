@@ -80,7 +80,8 @@ Finally, navigate to `http://localhost:8080`
 --header 'Content-Type: application/json' \
 --data '{
     "name": "Saikat2"
-}'```
+}'
+```
 3. Get All users
 ```curl --location 'localhost:8080/users/getAllUsers'```
 4. Get user By userId
@@ -90,7 +91,37 @@ Finally, navigate to `http://localhost:8080`
 --header 'Content-Type: application/json' \
 --data '{
     "name":"saikat2"
-}'```
+}'
+```
 6. Delete a user
 ```curl --location --request DELETE 'localhost:8080/users/delete/6469231dcf7c08b42f71f842'```
+
+7. Create A Hobbie
+```curl --location 'localhost:8080/hobbies/createHobby' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Riding",
+    "user": "6469b673b3a3941b4eab120e",
+    "year": 2012,
+    "passionLevel": "Very-High"
+}'
+```
+8. Update a Hobby
+```curl --location --request PATCH 'localhost:8080/hobbies/updateHobby/6469c4c888571fb2ed701f0b' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Coding",
+    "user": "6469b673b3a3941b4eab120e",
+    "year": 2018,
+    "passionLevel": "High"
+}'
+```
+9. Get a Hobby
+```curl --location 'localhost:8080/hobbies/getHobby/6469c4c888571fb2ed701f0b'```
+10. Get all Hobby
+```curl --location 'localhost:8080/hobbies/getAllHobbies'```
+11. Get a user's hobby
+```curl --location 'localhost:8080/hobbies/getUserHobbies/6469b673b3a3941b4eab120e'```
+12. Delete a Hobby
+```curl --location --request DELETE 'localhost:8080/hobbies/deleteHobby/6469c4c888571fb2ed701f0b'```
 
