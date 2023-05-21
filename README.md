@@ -6,21 +6,6 @@ The main purpose of this repository is to show a working Node.js API workflow fo
 
 -   [Pre-reqs](#pre-reqs)
 -   [Getting started](#getting-started)
--   [Deploying the app](#deploying-the-app)
-    -   [Pre-reqs](#Prerequisites)
-    -   [Deploying to Azure App Service](#deploying-to-azure-app-service)
--   [TypeScript + Node](#typescript--node)
-    -   [Getting TypeScript](#getting-typescript)
-    -   [Project Structure](#project-structure)
-    -   [Building the project](#building-the-project)
-    -   [Type Definition (`.d.ts`) Files](#type-definition-dts-files)
-    -   [Debugging](#debugging)
-    -   [Testing](#testing)
-    -   [ESLint](#eslint)
--   [Dependencies](#dependencies)
-    -   [`dependencies`](#dependencies)
-    -   [`devDependencies`](#devdependencies)
--   [Hackathon Starter Project](#hackathon-starter-project)
 
 # Pre-reqs
 
@@ -76,6 +61,7 @@ I am using MongoDB Atlas. You use my creadential or please create a DB and add t
     users that were previously created in local testing will not exist in the new database! Don't forget to return the `MONGO_URI_LOCAL` to your local test database (if you so desire).
 
 You can find **more information** about how to get started with Atlas [here](https://docs.atlas.mongodb.com/getting-started/).
+
 -   Run nd Build the project
 
 ```
@@ -83,4 +69,4 @@ npm start
 npm run build
 ```
 
-Finally, navigate to `http://localhost:8080` 
+Finally, navigate to `http://localhost:8080`
