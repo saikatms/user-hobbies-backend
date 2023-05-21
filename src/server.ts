@@ -8,6 +8,8 @@ import hobbiesRoutes from './routes/Hobbies';
 
 const router = express();
 
+router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 /** Connect to Mongo */
 mongoose
     .connect(config.mongo.url, { retryWrites: true, w: 'majority' })
@@ -22,7 +24,9 @@ const StartServer = () => {
     /** Log the request */
     router.use((req, res, next) => {
         /** Log the req */
-        Logging.info(`Incomming - METHOD: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}]`);
+        // console.log('reqq', req);
+
+        Logging.info(`Incomming - METHOD: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}] - BODY: [${req && req.body ? JSON.stringify(req.body) : []}]`);
 
         res.on('finish', () => {
             /** Log the res */
@@ -31,9 +35,6 @@ const StartServer = () => {
 
         next();
     });
-
-    router.use(express.urlencoded({ extended: true }));
-    router.use(express.json());
 
     /** Rules of our API */
     router.use((req, res, next) => {

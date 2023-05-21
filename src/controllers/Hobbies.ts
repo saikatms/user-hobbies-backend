@@ -76,6 +76,9 @@ const deleteHobby = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
         const hobby = await Hobbies.findByIdAndDelete(hobbyId);
+        console.log(hobby?.user);
+        await User.updateOne({ _id: hobby?.user }, { $pull: { hobbies: hobbyId } });
+
         return hobby ? res.status(201).json({ hobby, message: 'Deleted' }) : res.status(404).json({ message: 'not found' });
     } catch (error) {
         return res.status(500).json({ error });
